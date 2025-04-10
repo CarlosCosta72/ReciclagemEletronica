@@ -7,7 +7,7 @@
 <body>
     <h1>Estoque de Componentes Eletrônicos</h1>
 
-    {% if componentes %}
+    {% if componente_list %}
         <table>
             <thead>
                 <tr>
@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for componente in componentes %}
+                {% for componente in componente_list %}
                 <tr>
                     <td>{{ componente.nome }}</td>
                     <td>{{ componente.quantidade }}</td>
