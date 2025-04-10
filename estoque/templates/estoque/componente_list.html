@@ -17,11 +17,21 @@
                 </tr>
             </thead>
             <tbody>
+                <p>Adicionar componente</p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="nome" placeholder="Nome do componente">
+                    <input type="number" name="quantidade" max="100" placeholder = "Quantidade">
+                    <input type="text" name="descricao" placeholder = "Descrição">
+                    <button type = "submit">Adicionar</button>
+                </form>
                 {% for componente in componente_list %}
                 <tr>
                     <td>{{ componente.nome }}</td>
                     <td>{{ componente.quantidade }}</td>
                     <td>{{ componente.descricao|default:"Sem descrição" }}</td>
+                    <td><button><a href="{% url 'incrementar_componente' pk=componente.pk %}">+</a></button></td>
+                    <td><button><a href="{% url 'decrementar_componente' pk=componente.pk %}">-</a></button></td>
                 </tr>
                 {% endfor %}
             </tbody>
