@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+<head>
+    <title>Estoque de Componentes</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>Estoque de Componentes Eletrônicos</h1>
+
+    {% if componentes %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for componente in componentes %}
+                <tr>
+                    <td>{{ componente.nome }}</td>
+                    <td>{{ componente.quantidade }}</td>
+                    <td>{{ componente.descricao|default:"Sem descrição" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>O estoque está vazio.</p>
+    {% endif %}
+    <p><a href="{% url 'index' %}">Voltar para a Página Inicial</a></p>
+</body>
+</html>
