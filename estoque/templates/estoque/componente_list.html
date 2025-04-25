@@ -1,44 +1,53 @@
-<!DOCTYPE html>
-<html lang = "pt-br">
-<head>
-    <title>Estoque de Componentes</title>
-    <meta charset="utf-8">
-</head>
-<body>
-    <h1>Estoque de Componentes Eletrônicos</h1>
+{% extends "global/base.html" %}
+{% load static %}
+{% block title %}Catálogo{% endblock title %}
+{% block bloco__conteudo %}
+<section class="bloco">
+    <div class="bloco__conteudo">
+        <div class="titulo">
+            <h1 class="bloco__conteudo__titulo">Estoque de Componentes Eletrônicos</h1>
+        </div>
+        <div class="bloco__conteudo__adicionar">
+            <p>Adicionar componente</p>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="nome" placeholder="Nome do componente">
+                <input type="number" name="quantidade" min="0" max="100" placeholder="Quantidade">
+                <input type="text" name="descricao" placeholder="Descrição">
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
 
-    {% if componente_list %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Quantidade</th>
-                    <th>Descrição</th>
-                </tr>
-            </thead>
-            <tbody>
-                <p>Adicionar componente</p>
-                <form method="POST">
-                    {% csrf_token %}
-                    <input type="text" name="nome" placeholder="Nome do componente">
-                    <input type="number" name="quantidade" max="100" placeholder = "Quantidade">
-                    <input type="text" name="descricao" placeholder = "Descrição">
-                    <button type = "submit">Adicionar</button>
-                </form>
-                {% for componente in componente_list %}
-                <tr>
-                    <td>{{ componente.nome }}</td>
-                    <td>{{ componente.quantidade }}</td>
-                    <td>{{ componente.descricao|default:"Sem descrição" }}</td>
-                    <td><button><a href="{% url 'incrementar_componente' pk=componente.pk %}">+</a></button></td>
-                    <td><button><a href="{% url 'decrementar_componente' pk=componente.pk %}">-</a></button></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>O estoque está vazio.</p>
-    {% endif %}
-    <p><a href="{% url 'index' %}">Voltar para a Página Inicial</a></p>
-</body>
-</html>
+        {% if componente_list %}
+        <div class="bloco__conteudo__lista">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for componente in componente_list %}
+                    <tr>
+                        <td>{{ componente.nome }}</td>
+                        <td>{{ componente.quantidade }}</td>
+                        <td>{{ componente.descricao|default:"Sem descrição" }}</td>
+                        <td>
+                            <button><a href="{% url 'incrementar_componente' pk=componente.pk %}">+</a></button>
+                            <button><a href="{% url 'decrementar_componente' pk=componente.pk %}">-</a></button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <p>O estoque está vazio.</p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock bloco__conteudo %}

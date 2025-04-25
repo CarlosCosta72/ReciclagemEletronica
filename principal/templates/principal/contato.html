@@ -1,11 +1,39 @@
-<!DOCTYPE html>
-<html lang = "pt-br">
-<head>
-    <title>Contato</title>
-</head>
-<body>
-    <h1>Entre em Contato Conosco</h1>
-    <p>Informações de contato...</p>
-    <p><a href="{% url 'index' %}">Voltar para a Página Inicial</a></p>
-</body>
-</html>
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block title %}Contato{% endblock title %}
+
+{% block bloco__conteudo %}
+<section class="teste">
+    <div class="bloco">
+        <div class="bloco__conteudo">
+            <div>
+                <h1 class="bloco__conteudo__titulo">Entre em Contato Conosco</h1>
+            </div>
+            <div class="bloco__conteudo__img-txt">
+                <img src="{% static "principal/images/contato.jpg" %}" alt="Ícone de Contato">
+                <div>
+
+                  <table>
+                    <tr>
+                        <th>
+                            <p>Informações de contato:</p>
+                        </th>
+                        
+                        
+                    </tr>
+                    <tr>
+                        <td><p>email: relab.eletronicos.ufpb@gmail.com</p></td>
+                        <td><p>Instagram:<a href="https://www.instagram.com/relab.eletronicos/" target="_blank" rel="noopener noreferrer">@relab.eletronicos</a></p></td>
+                        <td><P>Whatsapp: <a href="">(83) 9999-9999</a></P></td>
+                    </tr>
+                  </table>
+    
+            </div>
+            </div>
+            <p>Sinta-se à vontade para nos enviar suas dúvidas, sugestões ou comentários. Estamos ansiosos para ouvir você!</p>
+        </div>
+    </div>
+</section>
+
+{% endblock bloco__conteudo %}

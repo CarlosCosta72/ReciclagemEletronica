@@ -1,0 +1,104 @@
+:root{
+    --corpoggers: #83A338;
+    --corSemipoggers: #6F8F2D;
+    --corPrimaria: #2A4127;
+    --corSecundaria: #203961;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: whitesmoke;
+}
+.teste{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bloco {
+    margin-top: 40px;
+    background: #fff;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.bloco__conteudo {
+    align-items: center;
+    width: 1280px;
+}
+
+.bloco__conteudo__titulo{
+    color: #0078d4;
+    margin-bottom: 10px;
+    font-size: x-large;
+    text-align: center;
+}
+.bloco__conteudo img{
+    width: 50%;
+    border: 4px solid black;
+    border-radius: 5px;
+}
+
+.bloco__conteudo__img-txt {
+    display: flex;
+    flex: 1;
+
+}
+.bloco__conteudo__img-txt p{
+    margin-left: 10px;
+    padding-left: 15px;
+    text-align: justify;
+}
+.bloco__conteudo__img-txt--reverse{
+    flex-direction: row-reverse;
+}
+.bloco__conteudo__img-txt--reverse p{
+    padding-right: 15px;
+    text-align: justify;
+}
+
+
+.navigation{
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: black;
+    margin-bottom: 5px;
+
+}
+.navigation a{
+    margin-right: 50px;
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+.navigation a:hover{
+    color: gray;
+}
+
+.bloco__conteudo__lista table {
+    margin-left: auto;
+    margin-right: auto;
+}
+.bloco__conteudo__adicionar {
+    margin: 20px auto; /* Adiciona margem superior e inferior para espaçamento */
+    text-align: center; /* Centraliza o texto e elementos inline dentro do div */
+}
+
+.bloco__conteudo__adicionar form {
+    display: inline-block; /* Permite que o form seja centralizado como um bloco */
+    text-align: left; /* Reverte o alinhamento do texto dentro do form */
+    /* Adicione outras propriedades de estilo para o form, como largura, se desejar */
+}
+
+.bloco__conteudo__adicionar input,
+.bloco__conteudo__adicionar button {
+    margin: 5px; /* Adiciona um pouco de espaçamento entre os elementos do formulário */
+}
+

@@ -1,13 +1,62 @@
-<!DOCTYPE html>
-<html lang = "pt-br">
-<head>
-    <title>Reciclagem de Componentes Eletrônicos</title>
-</head>
-<body>
-    <h1>Bem-vindo ao Nosso Projeto de Reciclagem</h1>
-    <p>Informações sobre a reciclagem de componentes eletrônicos...</p>
-    <p><a href="{% url 'componente_list' %}">Ver Nosso Estoque</a></p>
-    <p><a href="{% url 'contato' %}">Contato</a></p>
-    <p><a href="{% url 'quem_somos' %}">Quem Somos</a></p>
-</body>
-</html>
+{% extends "global/base.html" %}
+{%load static %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% block bloco__conteudo %}
+
+<section class="bloco">
+    <div class="bloco__conteudo">
+        <div>
+            <h2 class="bloco__conteudo__titulo">Laboratório de Reciclagem e Reutilização de Componentes Eletrônicos</h2>
+        </div>
+        <div class="bloco__conteudo__img-txt">
+            <img src="{% static "principal/images/imagem1.jpg" %}" alt = "img">
+            <p>O projeto busca promover a sustentabilidade e a economia circular, criando um laboratório especializado na coleta, desmontagem, triagem e reutilização de componentes eletrônicos de dispositivos descartados. Esse laboratório servirá como um centro para workshops de desmontagem segura, identificação de componentes reutilizáveis e criação de um banco de componentes para novos projetos.</p>
+        </div>
+    </div>
+</section>
+
+<section class="bloco">
+    <div class="bloco__conteudo">
+        <div>
+            <h2 class="bloco__conteudo__titulo">Plataforma Online e Educação</h2>
+        </div>
+
+        <div class="bloco__conteudo__img-txt bloco__conteudo__img-txt--reverse">
+            <img src="{% static "principal/images/imagem2.jpg" %}" alt = "img2">
+            <p>Além disso, o projeto inclui a criação de uma plataforma online para compartilhar componentes eletrônicos reaproveitados e recursos educacionais sobre reciclagem e microeletrônica. A plataforma terá fóruns de discussão, uma biblioteca de tutoriais e um sistema de trocas de componentes. Em parceria com escolas, o projeto também implementará programas educacionais sobre reciclagem e reutilização de eletrônicos, envolvendo palestras, demonstrações práticas e projetos escolares.</p>
+        </div>
+        
+    </div>
+</section>
+
+<section class="bloco">
+    <div class="bloco__conteudo">
+        <div>
+            <h2 class="bloco__conteudo__titulo">Impacto Social e ODS</h2>
+        </div>
+        <div class="bloco__conteudo__img-txt">
+            <img src="{% static "principal/images/imagem3.jpg" %}" alt = "img3">
+            <p>O impacto social esperado inclui facilitar o acesso a componentes e conhecimento técnico, criando uma comunidade engajada em práticas sustentáveis, além de reduzir significativamente o volume de resíduos eletrônicos descartados inadequadamente. Alinhado com os Objetivos de Desenvolvimento Sustentável (ODS) 4, 9 e 12, o projeto promove a educação de qualidade, infraestrutura sustentável e práticas de consumo e produção responsáveis.</p>
+        </div>
+    </div>
+</section>
+
+<section class="bloco">
+    <div class="bloco__conteudo">
+
+        <div>
+            <h2 class="bloco__conteudo__titulo">Metodologia e Resultados Esperados</h2>
+        </div>
+
+        <div class="bloco__conteudo__img-txt bloco__conteudo__img-txt--reverse">
+            <img src="{% static "principal/images/imagem4.jpg" %}" alt = "img4">
+            <p>A metodologia inclui a preparação do laboratório, campanhas de coleta de dispositivos eletrônicos, workshops de desmontagem, desenvolvimento da plataforma online e parcerias com escolas para programas educacionais. Os resultados esperados são a criação de um laboratório funcional, uma plataforma online ativa, programas educacionais implementados e uma redução significativa de resíduos eletrônicos na comunidade, desenvolvendo habilidades técnicas e profissionais em eletrônica entre os participantes. Todo processo terá auxílio de membros vinculados ao IEEE e todos os resultados serão expostos em todas as plataformas IEEE.</p>
+        </div>
+                
+    </div>
+</section>
+
+{% endblock bloco__conteudo %}
+ 

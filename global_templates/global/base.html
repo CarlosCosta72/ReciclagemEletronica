@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang = "pt-br">
+<head>
+    <title>ReLab | {% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href= "{% static "global/css/style.css" %}">
+    <link rel="stylesheet" href= "{% static "global/css/loader.css" %}">
+    {% block link %}{% endblock link %}
+</head>
+<body>   
+ 
+    <nav class="navigation">
+        <p><a href="{% url 'index' %}">Página Inicial</a></p>    
+        <p><a href="{% url 'componente_list' %}">Catálogo</a></p>
+        <p><a href="{% url 'contato' %}">Contato</a></p>
+        <p><a href="{% url 'quem_somos' %}">Quem Somos</a></p>
+    </nav>
+    <div class="loader"></div>
+
+    {% block bloco__conteudo %}{% endblock bloco__conteudo %}
+
+{% block script %}{% endblock script %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll("nav a");
+        const loader = document.querySelector(".loader");
+        const contentBlocks = document.querySelectorAll("body > *:not(.loader):not(script)");
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = this.href;
+
+                // Esconde conteúdo
+                contentBlocks.forEach(el => {
+                    el.style.display = "none";
+                });
+
+                // Mostra loader
+                loader.style.display = "block";
+
+                // Espera 0.5 segundos e redireciona
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 300);
+            });
+        });
+    });
+</script>
+</body>
+</html>
